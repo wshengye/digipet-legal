@@ -1,11 +1,15 @@
 # digipet-legal
 
-Public mirror of the Privacy Policy and Terms of Service shown inside the
-[Digipet](https://github.com/wshengye/digipet-app) iOS app. These copies are
-referenced from the App Store privacy URL field.
+Public legal, privacy, and support pages for the
+[Digipet](https://github.com/wshengye/digipet-app) iOS app. Deployed via
+Cloudflare Pages at `legal.digipetsg.app` and referenced from App Store Connect
+and Supabase auth settings.
 
-- [Privacy Policy](https://wshengye.github.io/digipet-legal/privacy.html)
-- [Terms of Service](https://wshengye.github.io/digipet-legal/terms.html)
+- [Privacy Policy](https://legal.digipetsg.app/privacy)
+- [Terms of Service](https://legal.digipetsg.app/terms)
+- [Support](https://legal.digipetsg.app/support)
 
 The in-app copies (`app/privacy.tsx` and `app/terms.tsx` in the main repo) are
-the source of truth; this repo is updated when those change.
+the source of truth for the privacy and terms text; this repo is updated when
+those change. `support.html`, `confirmed.html` (email-confirmation landing),
+and `reset-password.html` are web-only pages with no in-app equivalent.
