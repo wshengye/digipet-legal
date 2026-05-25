@@ -79,6 +79,17 @@
   <p>Your account is referenced in PostHog only by an opaque identifier (your Supabase user ID). PostHog does not receive your email or other contact details.</p>
   <p>You can turn off product-usage analytics at any time in <strong>Profile &rarr; Privacy &rarr; Analytics</strong>. After you opt out, no further events are sent from your device.</p>
 
+  <h3>(g) Community reviews</h3>
+  <p>If you write a review of a place, we store the rating, your optional review text, and the time you posted it, linked to your account. A review is <strong>public</strong> &mdash; visible to all other users. To prevent impersonation, it is shown under a masked form of your email (for example, <strong>wo&bull;&bull;&bull;@gmail.com</strong>); we never display your full email on a review. If you report a review or block a reviewer, we store that action so we can apply it and act on abuse. You can edit or delete your reviews at any time, and deleting your account removes them.</p>
+
+  <h3>(h) AI pet-care assistant (Biscuit)</h3>
+  <p>Biscuit is an in-app AI assistant powered by Google&rsquo;s Gemini API. When you send Biscuit a message, the message text plus a slim context object about the pet you&rsquo;re currently &ldquo;Talking about&rdquo; travels via our Supabase Edge Function to Google&rsquo;s Gemini service for processing. Your messages and the Gemini responses are <strong>not stored on our servers</strong> &mdash; chat history lives only in memory on your device and is cleared when you leave the screen.</p>
+  <p><strong>What we send to Google for each message:</strong> your message text; the active pet&rsquo;s name, species, breed, age in years, sex, neutered status, known allergies, diagnosed conditions, names of current medications, last three vaccinations, recent weight trend, last vet-visit date, and vet name if you have recorded one; your country code (e.g. <strong>SG</strong>) so answers are localised; and the last few messages in the conversation for follow-up context.</p>
+  <p><strong>What we never send to Google:</strong> your microchip number, pet photos or document scans, free-text notes from any record, exact date of birth, medication dosages, location data, your email, your full name, phone numbers, daily routine, today&rsquo;s walks, meals or grooming entries, or emergency-contact phone numbers.</p>
+  <p>We use Gemini&rsquo;s <strong>paid tier</strong>, which under Google&rsquo;s terms means your prompts and pet context are <strong>not used to train Google&rsquo;s models</strong>. Google may briefly retain the data to operate the service and meet legal obligations; see Google&rsquo;s API terms for details.</p>
+  <p>Biscuit is an information aid only. It is <strong>not veterinary advice and not a substitute for a vet</strong>. The chat screen carries a persistent disclaimer to this effect throughout the conversation. For anything that looks like an emergency, please contact your vet or the nearest emergency animal clinic immediately.</p>
+  <p>Free accounts get one Biscuit message per day; premium accounts get twenty (premium billing is not yet live). The daily counter resets at midnight in your device&rsquo;s timezone.</p>
+
   <h2>3. How we use your data</h2>
   <ul>
     <li>To create and operate your account and authenticate you.</li>
@@ -87,12 +98,13 @@
     <li>To detect and prevent fraud, abuse, security incidents, and policy violations.</li>
     <li>To comply with legal obligations and enforce our Terms of Service.</li>
   </ul>
-  <p>We do not sell, rent, or trade your personal data. We do not use your records to train artificial-intelligence models.</p>
+  <p>We do not sell, rent, or trade your personal data. We do not use your records to train artificial-intelligence models, and the Gemini paid tier we use for Biscuit (see section 2(h)) excludes your prompts and pet context from being used to train Google&rsquo;s models.</p>
 
   <h2>4. Who we share data with</h2>
   <p>We share personal data only with service providers that help us operate the App, and only to the extent they need to provide their service to us. Those providers are bound by their own data-protection obligations and are not permitted to use your data for their own purposes. We do not sell, rent, or trade your personal data, and we do not share it with advertisers.</p>
   <ul>
     <li><strong>Supabase</strong> &mdash; our authentication, database, and object-storage provider. Your account credentials, pet records, and pet photos are hosted on Supabase infrastructure located in Singapore. This is the primary processor that holds the bulk of your personal data.</li>
+    <li><strong>Google (Gemini API)</strong> &mdash; used only when you send a message to Biscuit, our in-app AI assistant (see section 2(h)). The message text and the slim pet context described there are sent to Google&rsquo;s Gemini service to generate the reply. We use Gemini&rsquo;s paid tier, which excludes your prompts and pet context from being used to train Google&rsquo;s models.</li>
     <li><strong>Other service providers</strong> &mdash; we may also use third parties for ancillary functions such as mobile app delivery and updates, postal-code geocoding (limited to the address fragment you enter, with no account or pet data attached), email delivery (for example, sign-up confirmation and password-reset messages), error reporting, and, if we introduce paid features in future, payment processing. Each such provider receives only the information needed to perform its specific function.</li>
   </ul>
   <p>Where any sharing involves a transfer of personal data outside Singapore, we rely on the recipient providing a standard of protection comparable to the PDPA, in line with section 26 of the PDPA.</p>
