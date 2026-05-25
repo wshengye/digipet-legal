@@ -30,7 +30,7 @@
   <nav class="crumb"><a href="./index.html">&larr; Digipet legal</a></nav>
   <header class="page">
     <h1>Privacy Policy</h1>
-    <div class="effective">Effective 24 May 2026</div>
+    <div class="effective">Effective 25 May 2026</div>
   </header>
 
   <p>Digipet (&ldquo;Digipet&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo; or &ldquo;our&rdquo;) provides a mobile application that helps pet owners keep records of their pets. This Privacy Policy explains what personal data we collect, why we collect it, who we share it with, and the choices and rights you have under the Singapore Personal Data Protection Act 2012 (the &ldquo;PDPA&rdquo;) and equivalent laws that may apply to you.</p>
@@ -70,7 +70,14 @@
   <p>You can revoke location permission at any time in your device settings. The App will continue to work without it, but the Explore distance feature and dog walk tracking will not.</p>
 
   <h3>(e) Operational data</h3>
-  <p>To keep the service running and to prevent abuse, we keep limited technical records &mdash; for example, sign-up rate-limit counters and standard server logs maintained by our infrastructure providers. We do not collect advertising identifiers, run third-party analytics SDKs, or build behavioural profiles for marketing.</p>
+  <p>To keep the service running and to prevent abuse, we keep limited technical records &mdash; for example, sign-up rate-limit counters and standard server logs maintained by our infrastructure providers. We do not collect advertising identifiers and we do not build behavioural profiles for marketing.</p>
+
+  <h3>(f) Product-usage analytics</h3>
+  <p>We use a privacy-focused analytics tool (PostHog, hosted in the European Union) to understand how the App is used &mdash; for example, which screens are visited, which features are tapped, and how long a session lasts. This helps us decide what to build next and where to fix bugs.</p>
+  <p><strong>What we send to PostHog:</strong> event names (for example, &ldquo;sign-up completed&rdquo;, &ldquo;pet added&rdquo;, &ldquo;vet visit logged&rdquo;), simple enum, boolean or count properties tied to those events (for example, the sign-up provider used, the record type, the number of pets on the account, the days since install), and standard device metadata (iOS or Android version, App version, device class).</p>
+  <p><strong>What we never send to PostHog:</strong> your pet&rsquo;s records, photos, notes, allergies, conditions, vet visits, walks, location coordinates, your email, your full name, phone numbers, microchip numbers, or any free-text you type in the App.</p>
+  <p>Your account is referenced in PostHog only by an opaque identifier (your Supabase user ID). PostHog does not receive your email or other contact details.</p>
+  <p>You can turn off product-usage analytics at any time in <strong>Profile &rarr; Privacy &rarr; Analytics</strong>. After you opt out, no further events are sent from your device.</p>
 
   <h2>3. How we use your data</h2>
   <ul>
