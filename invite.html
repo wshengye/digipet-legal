@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Digipet — You've been invited</title>
+<style>
+  :root { color-scheme: dark; }
+  html, body { margin: 0; padding: 0; background: #001528; color: #F4F4F2; }
+  body { font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+  main { max-width: 480px; margin: 0 auto; padding: 64px 24px 48px; }
+  .badge {
+    width: 64px; height: 64px; margin: 0 auto 24px;
+    border-radius: 50%; background: #36ECDE;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .badge svg { width: 30px; height: 30px; }
+  h1 {
+    margin: 0 0 12px; font-size: 22px; letter-spacing: 0.04em;
+    text-transform: uppercase; color: #36ECDE; text-align: center;
+  }
+  p {
+    font-size: 15px; line-height: 1.6; color: #F4F4F2; margin: 0 0 16px;
+    text-align: center;
+  }
+  .cta {
+    display: block; margin: 28px 0 16px; padding: 16px 24px;
+    background: #36ECDE; color: #001528;
+    text-decoration: none; border-radius: 12px;
+    font-weight: 800; letter-spacing: 0.06em; text-align: center;
+    text-transform: uppercase; font-size: 13px;
+  }
+  .cta:active { opacity: 0.85; }
+  .hint { font-size: 13px; line-height: 1.55; color: #6B7F94; }
+  .code-block {
+    margin: 12px 0 24px; padding: 14px 16px;
+    background: #0F2A48; border: 1px solid #1A3A5C;
+    border-radius: 10px;
+    font-family: Menlo, Monaco, Consolas, monospace;
+    font-size: 13px; color: #F4F4F2; word-break: break-all;
+    text-align: center; cursor: pointer; user-select: all;
+  }
+  .code-block.copied { border-color: #36ECDE; }
+  .stores {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+    margin: 20px 0 0;
+  }
+  .stores a {
+    padding: 12px; background: transparent; border: 1px solid #1A3A5C;
+    border-radius: 10px; color: #F4F4F2; text-decoration: none;
+    font-size: 13px; text-align: center;
+  }
+  .stores a:hover { border-color: #36ECDE; color: #36ECDE; }
+  .error {
+    margin: 24px 0; padding: 14px 16px;
+    background: rgba(255, 96, 96, 0.08);
+    border: 1px solid rgba(255, 96, 96, 0.4);
+    border-radius: 10px; color: #FF8888; font-size: 13px; line-height: 1.55;
+    text-align: center;
+  }
+  footer.page {
+    margin-top: 40px; padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    font-size: 12px; color: #6B7F94; text-align: center;
+  }
+  footer.page a { color: #8FA3B8; text-decoration: none; margin: 0 8px; }
+</style>
+</head>
+<body>
+<main>
+  <div class="badge">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16 11a4 4 0 1 0-8 0v0a4 4 0 0 0 8 0Z" stroke="#001528" stroke-width="2" stroke-linecap="round"/>
+      <path d="M3 21a9 9 0 0 1 18 0" stroke="#001528" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <h1>You've Been Invited</h1>
+
+  <div id="content">
+    <p>Someone wants to share their pet's care with you on Digipet. Open the app to accept the invite.</p>
+    <a id="open-in-app" class="cta" href="#">Open in Digipet</a>
+    <p class="hint">If the button doesn't open the app, paste this code under <strong>Accept invite</strong> in the Digipet app:</p>
+    <div class="code-block" id="token-display" title="Tap to copy">loading…</div>
+    <p class="hint">Don't have Digipet yet? Install the app, sign in, and paste the code.</p>
+    <div class="stores">
+      <a href="https://apps.apple.com/sg/app/digipet/id6740000000">App Store</a>
+      <a href="https://play.google.com/store/apps/details?id=app.digipetsg">Google Play</a>
+    </div>
+  </div>
+
+  <div id="error" class="error" style="display: none;">
+    This invite link is missing or malformed. Ask the person who invited you to send a fresh one.
+  </div>
+
+  <footer class="page">
+    <a href="./privacy.html">Privacy</a>
+    <a href="./terms.html">Terms</a>
+    <a href="./index.html">Help</a>
+  </footer>
+</main>
+
+<script>
+  (function () {
+    const params = new URLSearchParams(location.search);
+    const token = (params.get('token') || '').trim();
+
+    if (!token) {
+      document.getElementById('content').style.display = 'none';
+      document.getElementById('error').style.display = 'block';
+      return;
+    }
+
+    // Display the token (selectable / tap-to-copy).
+    const tokenEl = document.getElementById('token-display');
+    tokenEl.textContent = token;
+    tokenEl.addEventListener('click', function () {
+      if (!navigator.clipboard) return;
+      navigator.clipboard.writeText(token).then(function () {
+        tokenEl.classList.add('copied');
+        setTimeout(function () { tokenEl.classList.remove('copied'); }, 1500);
+      }).catch(function () {});
+    });
+
+    // Wire the deep link.
+    const cta = document.getElementById('open-in-app');
+    cta.href = 'digipet://accept-invite?token=' + encodeURIComponent(token);
+  })();
+</script>
+</body>
+</html>
